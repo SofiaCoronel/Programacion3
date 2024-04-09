@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1.csproj", "{F60BD223-AAAC-4A4E-8056-09DA379F4741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1.csproj", "{F60BD223-AAAC-4A4E-8056-09DA379F4741}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "..\ConsoleApp2\ConsoleApp2.csproj", "{6F59DC5E-AE20-4EFC-B48D-BEE874B8F8BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "..\ConsoleApp2\ConsoleApp2.csproj", "{6F59DC5E-AE20-4EFC-B48D-BEE874B8F8BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{EB399CD5-A6D4-45EC-AA1F-2483753386E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starwars.Core.Entities", "..\Starwars.Core.Entities\Starwars.Core.Entities.csproj", "{15E76595-BE65-4A69-8554-7C90FAC25004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{6F59DC5E-AE20-4EFC-B48D-BEE874B8F8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F59DC5E-AE20-4EFC-B48D-BEE874B8F8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F59DC5E-AE20-4EFC-B48D-BEE874B8F8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E76595-BE65-4A69-8554-7C90FAC25004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E76595-BE65-4A69-8554-7C90FAC25004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E76595-BE65-4A69-8554-7C90FAC25004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E76595-BE65-4A69-8554-7C90FAC25004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F60BD223-AAAC-4A4E-8056-09DA379F4741} = {EB399CD5-A6D4-45EC-AA1F-2483753386E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39FC265F-494F-473A-8CAE-AC851DD5260F}

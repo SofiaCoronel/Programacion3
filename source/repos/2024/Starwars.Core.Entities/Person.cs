@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1
+﻿namespace Starwars.Core.Entities
 {
     public class Person
     {
