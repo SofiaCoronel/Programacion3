@@ -1,7 +1,10 @@
-using Programacion3.Ejercicios.Entidades;
-using Programacion3.Ejercicios.Entidades.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Programacion3.Ejercicios.Tests
+namespace PracticaParcial.Ejercicios.Tests
 {
     /// <summary>
     /// Unidad 3
@@ -9,10 +12,10 @@ namespace Programacion3.Ejercicios.Tests
     /// </summary>
     public class Unidad3Test
 
-	{
-		[Fact]
-		public void unidad3_test1_array_debe_contener_5_elementos()
-		{
+    {
+        [Fact]
+        public void unidad3_test1_array_debe_contener_5_elementos()
+        {
             int[] array = new int[5];
 
             Assert.Equal(5, array.Length);
@@ -22,7 +25,7 @@ namespace Programacion3.Ejercicios.Tests
         [Fact]
         public void unidad3_test2_array_debe_contener_y_no_contener_elementos()
         {
-            int[] array = new int[] {3, 5};
+            int[] array = new int[] { 3, 5 };
 
             Assert.Contains(3, array);
             Assert.Contains(5, array);

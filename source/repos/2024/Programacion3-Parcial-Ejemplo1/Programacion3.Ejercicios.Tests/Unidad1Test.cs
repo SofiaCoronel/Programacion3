@@ -27,8 +27,7 @@ namespace Programacion3.Ejercicios.Tests
 		public void unidad1_test2_deberia_crear_un_jugador_castearlo_en_persona()
 		{
 			var jugador1 = new Jugador(nombre: "Lionel", apellido: "Messi");
-
-			var persona1 = (Persona)jugador1;
+			Persona persona1 = jugador1;
 
 			Assert.Equal("Lionel", persona1.Nombre);
 			Assert.Equal("Messi", persona1.Apellido);
@@ -40,8 +39,7 @@ namespace Programacion3.Ejercicios.Tests
 		public void unidad1_test2_deberia_crear_un_jugador_castearlo_en_interfaz_inombrecompleto()
 		{
 			var jugador1 = new Jugador(nombre: "Lionel", apellido: "Messi");
-
-			var personaConNombreCompleto = (INombreCompleto)jugador1;
+			INombreCompleto personaConNombreCompleto = jugador1; 
 
 			Assert.Equal("Lionel Messi", personaConNombreCompleto.NombreCompleto);
 

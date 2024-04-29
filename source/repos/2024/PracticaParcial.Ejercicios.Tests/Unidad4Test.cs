@@ -1,15 +1,18 @@
-using Programacion3.Ejercicios.Entidades;
-using Programacion3.Ejercicios.Entidades.Interfaces;
+ï»¿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Programacion3.Ejercicios.Tests
+namespace PracticaParcial.Ejercicios.Tests
 {
     /// <summary>
     /// Unidad 4
-    /// C#. Organización de proyectos avanzados. Estructura de Proyectos. Organización de espacio de nombres. Manejo de Fechas C# Conceptos intermedios. Collections. Generics. IO (Files)
+    /// C#. OrganizaciÃ³n de proyectos avanzados. Estructura de Proyectos. OrganizaciÃ³n de espacio de nombres. Manejo de Fechas C# Conceptos intermedios. Collections. Generics. IO (Files)
     /// </summary>
     public class Unidad4Test
 
-	{
+    {
         [Fact]
         public void unidad4_test1_DateTime_Formatting()
         {

@@ -1,0 +1,17 @@
+﻿using PracticaParcial.Ejercicios.Entidades;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+
+namespace PracticaParcial
+{
+    public class Jugador : Persona
+    {
+        public int Goles { get; set; }
+
+        public Jugador(string nombre, string apellido)
+            : base(nombre, apellido)
+        {
+
+        }
+    }
+}

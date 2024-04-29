@@ -4,7 +4,9 @@ namespace Programacion3.Ejercicios.Entidades
 {
 	public class Jugador: Persona
 	{
-		public Jugador(string nombre, string apellido)
+        public int Goles { get; set; }
+
+        public Jugador(string nombre, string apellido)
 			: base(nombre, apellido)
 		{
 
