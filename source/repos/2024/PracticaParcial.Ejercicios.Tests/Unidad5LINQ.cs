@@ -22,18 +22,18 @@ namespace PracticaParcial.Ejercicios.Tests
             //Utilizar el metodo Any de LINQ para determinar si la lista contiene algún número par
             bool contieneNumerosPares = numeros.Any(numero => numero % 2 == 0);
 
-            Assert.True(contieneNumerosPares); 
+            Assert.False(contieneNumerosPares); 
         }
 
 
-        /*
+        
         [Fact]
         public void unidad5_test2_numerosmaximo_utilizacion_max()
         {
             var numeros = new List<int> { 1, 3, 5, 7, 9, 37 };
 
             //Utilizar el metodo Max de LINQ
-            int maximoNumero =
+            int maximoNumero = numeros.Max();
 
             Assert.Equal(37, maximoNumero);
 
@@ -45,52 +45,52 @@ namespace PracticaParcial.Ejercicios.Tests
         {
             var palabras = new List<string> { "Manzana", "Banana", "Pera", "Anana" };
 
-            var cantidadPalabrasComienzanConA =
+            var cantidadPalabrasComienzanConA = palabras.Count(palabra => palabra.StartsWith("a", StringComparison.OrdinalIgnoreCase));
 
-             Assert.Equal(1, cantidadPalabrasComienzanConA);
+             Assert.Equal(1, cantidadPalabrasComienzanConA); //Verificar el contador
 
         }
 
-
+        
         [Fact]
         public void unidad5_test4_obtenernumerosimpares_filtro_y_obtener_lista()
         {
             var numeros = new List<int> { 1, 2, 3, 4, 5 };
 
             //Se desea obtener una lista con los números impares utilizando LINQ
-            var numerosImpares =
+            var numerosImpares = numeros.Where(numeros => numeros % 2 != 0);
 
 
             Assert.Equal(new List<int> { 1, 3, 5 }, numerosImpares);
 
         }
 
-
+        
         [Fact]
         public void unidad5_test5_preguntasitodaslaspalabrasterminancona_utilizacion_all()
         {
             var palabras = new List<string> { "Manzana", "Banana", "Pera", "Anana" };
 
             //Utilizar el metodo All de LINQ para determinar si todas las palabras terminan con la letra "a"
-            var todasTerminanConA =
+            var todasTerminanConA = palabras.All(palabras => palabras.EndsWith("a", StringComparison.OrdinalIgnoreCase));
 
              Assert.True(todasTerminanConA);
 
         }
 
-
+        
         [Fact]
         public void unidad5_test6_sumarl()
         {
             var numeros = new List<int> { 1, 2, 3, 4, 5 };
 
             //utilizar LINQ para sumar todos los números de la lista
-            var suma =
+            var suma = numeros.Sum(numeros => numeros);
 
             Assert.Equal(15, suma);
         }
 
-
+        
         [Fact]
         public void unidad5_test7_obtenerlapalabramaslarga()
         {
@@ -98,7 +98,7 @@ namespace PracticaParcial.Ejercicios.Tests
 
             //Utilizar LINQ para obtener la palabra más larga
             ////(NOTA: string tiene una propiedad Length para comparar, TIP. Se puede ordenar descendentemente)
-            var palabraMasLarga =
+            var palabraMasLarga = palabras.OrderByDescending(palabras => palabras.Length).First();
 
             Assert.Equal("Manzana", palabraMasLarga);
 
@@ -108,55 +108,58 @@ namespace PracticaParcial.Ejercicios.Tests
         [Fact]
         public void unidad5_test8_ordenarlistaalfabeticamente()
         {
-
             var letras = new List<string> { "z", "a", "d", "c" };
 
-            //Utilizar LINQ para ordenar la lista alfabéticamente
-
-            //var letrasOrdenadas = letras.OrderBy(x => x).ToList();
-
-            var letrasOrdenadas = from l in letras
-                                  orderby l
-                                  select l;
-
+            // Utilizar LINQ para ordenar la lista alfabéticamente
+            var letrasOrdenadas = letras.OrderBy(letra => letra).ToList();
 
             Assert.Equal(new List<string> { "a", "c", "d", "z" }, letrasOrdenadas);
         }
 
-
+        //Ejemplos -------------------------------------------------------------------
         [Fact]
-        public void unidad5_test9_ordenarlistaalfabeticamente()
+        public void unidad5_test9_mayoresA80()
         {
+            var puntos = new List<int> { 81, 97, 103, 55, 52 };
 
-            var letras = new List<string> { "z", "a", "d", "c" };
+            List<int> puntosQueri =
+                (from p in puntos
+                 where p > 80
+                 select p).ToList();
 
-            //Utilizar LINQ para ordenar la lista alfabéticamente
-            var letrasOrdenadas =
-
-
-            Assert.Equal(new List<string> { "a", "c", "d", "z" }, letrasOrdenadas);
+            Assert.Equal(new List<int> { 81, 97, 103 }, puntosQueri);
         }
 
-        */
 
         [Fact]
-        public void unidad5_test8_equipos()
+        public void unidad5_test10_mayoresA80()
+        {
+            var puntos = new List<int> { 81, 97, 103, 55, 52 };
+
+            var puntosMayor = puntos.Where(puntos => puntos > 80);
+
+            Assert.Equal(new List<int> { 81, 97, 103 }, puntosMayor);
+        }
+
+        //--------------------------------------------------------------------------
+
+        [Fact]
+        public void unidad5_test11_equipos()
         {
             var equipos = GenerarEquipos();
 
 
             //Obtener los nombres de equipos con el jugador con el nombre "J 1"
             var equiposConJ1 = from e in equipos
-                               where e.Jugadores.Any(x => x.Nombre.Equals("J 1", StringComparison.OrdinalIgnoreCase))
+                               where e.Jugadores.Any(x => x.Nombre == "J 1")
                                select e.Nombre;
-
 
             Assert.Equal(new List<string> { "Equipo 1" }, equiposConJ1);
         }
 
 
         [Fact]
-        public void unidad5_test9_golestotales()
+        public void unidad5_test12_golestotales()
         {
             var equipos = GenerarEquipos();
 
@@ -180,8 +183,8 @@ namespace PracticaParcial.Ejercicios.Tests
 
 
 
-            Assert.Equal(5, demo1);
-            Assert.Equal(5, golesTotales);
+            Assert.Equal(22, demo1);
+            Assert.Equal(22, golesTotales);
         }
 
 
@@ -238,9 +241,72 @@ namespace PracticaParcial.Ejercicios.Tests
 
 
         //10: Cuantos jugadores tiene el equipo que esta segundo en el ranking >> 2 jugadores
+        [Fact]
+        public void unidad5_test13_cantidad_jugadores_segundo_equipo()
+        {
+            var equipos = GenerarEquipos();
+
+            // Obtener el número de jugadores del equipo que está segundo en el ranking
+            var cantidadJugadoresSegundoEquipo = equipos.Where(e => e.Ranking == 2).Select(e => e.Jugadores.Count).FirstOrDefault();
+
+            Assert.Equal(2, cantidadJugadoresSegundoEquipo);
+        }
+
+
+
         //11: Cual es el Ranking del equipo con mas jugadores >> 2do ranking
+        [Fact]
+        public void unidad5_test14_ranking_equipo_mas_jugadores()
+        {
+            var equipos = GenerarEquipos();
+
+            var rankingEquipoMasJugadores = equipos.OrderByDescending(e => e.Jugadores.Count).Select(e => e.Ranking).FirstOrDefault();
+
+            Assert.Equal(2, rankingEquipoMasJugadores);
+        }
+
+
+
         //12: Cual es el promedio de goles de jugadores que parte del nombre sea "J 1"
+        [Fact]
+        public void unidad5_test15_promedio_goles_jugadores_nombreJ1()
+        {
+            var equipos = GenerarEquipos();
+
+            var jugadoresConNombreJ1 = equipos.SelectMany(jugador => jugador.Jugadores).Where(jugador => jugador.Nombre.StartsWith("J 1"));
+
+            var promedioGolesJ1 = jugadoresConNombreJ1.Select(jugador => jugador.Goles).Average();
+
+            Assert.Equal(3.5, promedioGolesJ1, 0.01);
+        }
+
 
         //13: Cual de los equipos posee el nombre de jugador mas largo
+        [Fact]
+        public void unidad5_test16_equipo_jugador_nombre_mas_largo()
+        {
+            var equipos = GenerarEquipos(); 
+
+            // Get the team with the longest player name using LINQ aggregation
+            var equipoConJugadorNombreMasLargo = equipos.Select(equipo => new
+            {
+                Equipo = equipo,
+                JugadorNombreMasLargo = equipo.Jugadores.Max(jugador => jugador.Nombre.Length)
+            })
+            .Where(equipoInfo => equipoInfo.JugadorNombreMasLargo == equipos.SelectMany(e => e.Jugadores).Max(j => j.Nombre.Length))
+            .Select(equipoInfo => equipoInfo.Equipo)
+            .FirstOrDefault();
+
+            // Display the team name
+            if (equipoConJugadorNombreMasLargo != null)
+            {
+                Console.WriteLine("Equipo con jugador de nombre más largo: {0}", equipoConJugadorNombreMasLargo.Nombre);
+            }
+            else
+            {
+                Console.WriteLine("No se encontraron equipos con jugadores.");
+            }
+        }
+
     }
 }

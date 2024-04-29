@@ -36,11 +36,11 @@ namespace PracticaParcial.Ejercicios.Tests
         [Fact]
         public void unidad3_test3_array_string_completar_bucle_for()
         {
-            string[] array = new string[4];
+            string[] array = new string[50];
 
-            for (int i = 1; i < array.Length; i++) // Start at 1 and iterate up to array.Length
+            for (int i = 0; i < 50; i++)
             {
-                array[i] = "Value " + (i * 10).ToString(); // Multiply by i for the sequence
+                array[i] = $"Value {i}";
             }
 
             Assert.Contains("Value 1", array);
@@ -54,12 +54,12 @@ namespace PracticaParcial.Ejercicios.Tests
         [Fact]
         public void unidad3_test4_array_string_completar_con_while()
         {
-            string[] array = new string[4];
-            int i = 1; // Start at 1
+            string[] array = new string[50];
+            int i = 0; 
 
             while (i < array.Length)
             {
-                array[i] = "Value " + (i * 10).ToString(); // Multiply by i for the sequence
+                array[i] = $"Value {i}";
                 i++;
             }
 
